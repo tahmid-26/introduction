@@ -49,7 +49,8 @@ nav a:hover{background:var(--glass-b);color:var(--text)}
 nav button{all:unset;cursor:pointer;width:2.1rem;height:2.1rem;display:grid;place-items:center;border-radius:50%;font-size:1rem}
 nav button:hover{background:var(--glass-b)}
 nav button:focus-visible{outline:2px solid var(--teal)}
-@media(max-width:560px){nav a:nth-of-type(n+4){display:none}}
+nav{overflow-x:auto;scrollbar-width:none}nav::-webkit-scrollbar{display:none}nav a{white-space:nowrap}
+@media(max-width:560px){nav{gap:0}nav a{padding:.45rem .6rem;font-size:.85rem}.wrap{padding:0 1.1rem}section{padding-top:4.5rem}.hero{padding-top:6rem}.sub{font-size:1.1rem}.btn{flex:1 1 auto;text-align:center}.term{font-size:.8rem}.term pre{min-height:12rem;padding:1rem}.badge{font-size:.8rem;border-radius:1rem}.contact{padding:1.6rem 1.2rem}.tl{padding-left:1.6rem}.ev{padding:1rem}.ev::before{left:-1.6rem}}
 
 section{padding:6rem 0 1rem}
 h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:650;letter-spacing:-.03em;line-height:1.15;margin-bottom:2rem}
@@ -81,9 +82,13 @@ h1{font-size:clamp(2.8rem,8vw,5.6rem);font-weight:700;letter-spacing:-.045em;lin
 @keyframes blink{50%{opacity:0}}
 
 /* about */
-.about{display:grid;gap:2rem;grid-template-columns:auto 1fr;align-items:start}
-@media(max-width:620px){.about{grid-template-columns:1fr}}
-.avatar{width:7.5rem;height:7.5rem;border-radius:50%;display:grid;place-items:center;font-size:2.2rem;font-weight:700;letter-spacing:-.02em;background:var(--glass);border:2px solid transparent;background-image:linear-gradient(var(--bg),var(--bg)),linear-gradient(135deg,var(--violet),var(--teal),var(--pink));background-origin:border-box;background-clip:padding-box,border-box;box-shadow:0 0 40px -6px var(--violet)}
+.about{display:grid;gap:2.5rem;grid-template-columns:auto 1fr;align-items:center}
+@media(max-width:720px){.about{grid-template-columns:1fr;justify-items:center}.about>div:last-child{justify-self:stretch}}
+.frame{position:relative;margin:0;width:min(15rem,72vw);aspect-ratio:4/5;padding:.55rem;border-radius:1.7rem;background:linear-gradient(135deg,var(--violet),var(--teal),var(--pink));box-shadow:0 0 60px -12px var(--violet)}
+.frame .in{position:relative;width:100%;height:100%;border-radius:1.2rem;overflow:hidden;background:var(--bg);display:grid;place-items:center}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.frame .ph{font-size:3.2rem;font-weight:700;letter-spacing:-.03em;color:var(--muted)}
+.frame figcaption{position:absolute;left:50%;bottom:-.9rem;transform:translateX(-50%);padding:.35rem 1rem;border-radius:999px;font-size:.88rem;white-space:nowrap}
 .about p+p{margin-top:1rem}
 .facts{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));margin-top:2.5rem}
 .fact{padding:1.2rem 1.3rem}
@@ -109,7 +114,7 @@ h1{font-size:clamp(2.8rem,8vw,5.6rem);font-weight:700;letter-spacing:-.045em;lin
 
 /* timeline */
 .tl{position:relative;padding-left:2rem;max-width:44rem}
-.tl::before{content:"";position:absolute;left:.45rem;top:.4rem;bottom:.4rem;width:2px;background:linear-gradient(var(--violet),var(--teal),transparent)}
+.tl::before{content:"";position:absolute;left:.4rem;top:.4rem;bottom:.4rem;width:2px;background:linear-gradient(var(--violet),var(--teal),transparent)}
 .ev{position:relative;padding:1.2rem 1.4rem;margin-bottom:1rem}
 .ev::before{content:"";position:absolute;left:-1.95rem;top:1.55rem;width:.9rem;height:.9rem;border-radius:50%;background:var(--bg);border:2px solid var(--violet);box-shadow:0 0 14px var(--violet)}
 .ev.now::before{border-color:var(--teal);background:var(--teal);box-shadow:0 0 16px var(--teal)}
@@ -168,7 +173,10 @@ footer q{display:block;font-size:1.2rem;color:var(--text);margin-bottom:.8rem;qu
 <section id="about"><div class="wrap">
   <h2>About me</h2>
   <div class="about">
-    <img src="me.jpg" alt="Din Mohammad">
+    <figure class="frame">
+      <div class="in"><span class="ph" aria-hidden="true">DM</span><img src="me.jpg" alt="Portrait of Din Mohammad" width="480" height="600" decoding="async"></div>
+      <figcaption class="glass">Din Mohammad (Tahmid)</figcaption>
+    </figure>
     <div>
       <p class="lead">I’m a 20-year-old tech enthusiast from Bangladesh, currently preparing for engineering university admissions.</p>
       <p class="lead">I’ve always been fascinated by how digital systems work and communicate under the hood. Right now I’m turning that curiosity into modern web development, learning to build fast, clean sites with Astro and Tailwind CSS, while digging into the fundamentals of cybersecurity.</p>
@@ -247,6 +255,8 @@ footer q{display:block;font-size:1.2rem;color:var(--text);margin-bottom:.8rem;qu
   set(s||'dark');
   b.addEventListener('click',function(){var n=r.getAttribute('data-theme')==='dark'?'light':'dark';set(n);try{localStorage.setItem('theme',n)}catch(e){}});
   document.getElementById('y').textContent=new Date().getFullYear();
+  var im=document.querySelector('.frame img');
+  if(im)im.addEventListener('error',function(){im.remove()});
 
   // terminal typing (static text stays if motion is reduced)
   var t=document.getElementById('t');
