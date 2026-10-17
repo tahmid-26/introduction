@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Din Mohammad (Tahmid) – Web Developer & Cybersecurity Enthusiast</title>
+<meta name="description" content="Din Mohammad, also known as Tahmid. Aspiring web developer and cybersecurity enthusiast from Bangladesh. Building the web today, securing it tomorrow.">
+<meta name="theme-color" content="#07060d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9B%A1%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#07060d; --text:#ecebf5; --muted:#a3a1b8;
+  --glass:rgba(255,255,255,.06); --glass-b:rgba(255,255,255,.14);
+  --violet:#8b6cff; --teal:#2de2c4; --pink:#ff6fb5;
+  --a1:rgba(139,108,255,.55); --a2:rgba(45,226,196,.38); --a3:rgba(255,111,181,.32);
+  --font:"Avenir Next","Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,"Helvetica Neue",sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
+}
+:root[data-theme="light"]{
+  --bg:#f4f3fb; --text:#16152a; --muted:#585673;
+  --glass:rgba(255,255,255,.62); --glass-b:rgba(60,50,120,.16);
+  --violet:#6a4cf0; --teal:#0a9c86; --pink:#d6307f;
+  --a1:rgba(139,108,255,.35); --a2:rgba(45,226,196,.28); --a3:rgba(255,111,181,.25);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:5.5rem}
+body{background:var(--bg);color:var(--text);font:400 1.05rem/1.65 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:8px}
+
+/* aurora */
+.aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;filter:blur(90px);will-change:transform}
+.aurora i:nth-child(1){width:60vmax;height:60vmax;left:-15vmax;top:-20vmax;background:var(--a1);animation:d1 26s ease-in-out infinite alternate}
+.aurora i:nth-child(2){width:50vmax;height:50vmax;right:-15vmax;top:20vh;background:var(--a2);animation:d2 32s ease-in-out infinite alternate}
+.aurora i:nth-child(3){width:45vmax;height:45vmax;left:20vw;bottom:-25vmax;background:var(--a3);animation:d1 38s ease-in-out infinite alternate-reverse}
+@keyframes d1{to{transform:translate(12vmax,8vmax) scale(1.15)}}
+@keyframes d2{to{transform:translate(-14vmax,-6vmax) scale(.9)}}
+
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+.glass{background:var(--glass);border:1px solid var(--glass-b);border-radius:1.25rem;-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%)}
+
+/* nav */
+nav{position:fixed;top:max(.9rem,env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:10;display:flex;align-items:center;gap:.25rem;padding:.4rem .5rem;border-radius:999px;max-width:calc(100% - 1.5rem)}
+nav a{padding:.4rem .85rem;border-radius:999px;text-decoration:none;font-size:.92rem;color:var(--muted);transition:background .2s,color .2s}
+nav a:hover{background:var(--glass-b);color:var(--text)}
+nav button{all:unset;cursor:pointer;width:2.1rem;height:2.1rem;display:grid;place-items:center;border-radius:50%;font-size:1rem}
+nav button:hover{background:var(--glass-b)}
+nav button:focus-visible{outline:2px solid var(--teal)}
+@media(max-width:560px){nav a:nth-of-type(n+4){display:none}}
+
+section{padding:6rem 0 1rem}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:650;letter-spacing:-.03em;line-height:1.15;margin-bottom:2rem}
+p.lead{max-width:62ch;color:var(--muted)}
+
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding:7rem 0 3rem}
+.hero .wrap{display:grid;gap:3rem;grid-template-columns:1.1fr .9fr;align-items:center;width:100%}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+.badge{display:inline-flex;align-items:center;gap:.6rem;padding:.4rem .9rem;border-radius:999px;font-size:.88rem;color:var(--muted);margin-bottom:1.5rem}
+.badge b{width:.55rem;height:.55rem;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 var(--teal);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 .6rem transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(2.8rem,8vw,5.6rem);font-weight:700;letter-spacing:-.045em;line-height:1;background:linear-gradient(100deg,var(--text) 30%,var(--violet) 70%,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nick{display:block;margin-top:.9rem;font-size:1.15rem;font-weight:400;letter-spacing:0;color:var(--muted);-webkit-text-fill-color:var(--muted)}
+.sub{margin:1.6rem 0 2rem;font-size:1.25rem;max-width:34ch}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;padding:.8rem 1.4rem;border-radius:999px;text-decoration:none;font-weight:600;border:1px solid var(--glass-b);background:var(--glass);transition:transform .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--teal)}
+.btn.main{background:linear-gradient(120deg,var(--violet),var(--teal));color:#07060d;border-color:transparent}
+
+.term{overflow:hidden;font-family:var(--mono);font-size:.92rem;line-height:1.7;box-shadow:0 30px 80px -30px rgba(139,108,255,.55)}
+.term header{display:flex;gap:.45rem;align-items:center;padding:.8rem 1rem;border-bottom:1px solid var(--glass-b);color:var(--muted);font-size:.8rem}
+.term header i{width:.7rem;height:.7rem;border-radius:50%;background:var(--pink)}
+.term header i:nth-child(2){background:#ffcf5c}.term header i:nth-child(3){background:var(--teal)}
+.term header span{margin-left:.6rem}
+.term pre{padding:1.2rem 1.3rem;white-space:pre-wrap;min-height:13.5rem;font:inherit}
+.term .p{color:var(--teal)}.term .k{color:var(--violet)}.term .o{color:var(--text)}
+.cur{display:inline-block;width:.55em;height:1.1em;background:var(--teal);vertical-align:-.2em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* about */
+.about{display:grid;gap:2rem;grid-template-columns:auto 1fr;align-items:start}
+@media(max-width:620px){.about{grid-template-columns:1fr}}
+.avatar{width:7.5rem;height:7.5rem;border-radius:50%;display:grid;place-items:center;font-size:2.2rem;font-weight:700;letter-spacing:-.02em;background:var(--glass);border:2px solid transparent;background-image:linear-gradient(var(--bg),var(--bg)),linear-gradient(135deg,var(--violet),var(--teal),var(--pink));background-origin:border-box;background-clip:padding-box,border-box;box-shadow:0 0 40px -6px var(--violet)}
+.about p+p{margin-top:1rem}
+.facts{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));margin-top:2.5rem}
+.fact{padding:1.2rem 1.3rem}
+.fact h3{font-size:1rem;margin-bottom:.35rem}
+.fact p{color:var(--muted);font-size:.96rem;line-height:1.55}
+
+/* skills */
+.groups{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+.group{padding:1.4rem}
+.group h3{font-size:1.05rem;margin-bottom:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{padding:.35rem .8rem;border-radius:999px;font-size:.9rem;border:1px solid var(--glass-b);background:var(--glass)}
+.chip.l{border-style:dashed;color:var(--muted)}
+.note{margin-top:1rem;font-size:.9rem;color:var(--muted)}
+
+/* projects */
+.cards{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+.card{padding:1.6rem;display:flex;flex-direction:column;gap:.8rem;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--violet)}
+.card h3{font-size:1.2rem;letter-spacing:-.01em}
+.card p{color:var(--muted);font-size:.98rem;line-height:1.6;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;font-family:var(--mono);font-size:.78rem;color:var(--teal)}
+
+/* timeline */
+.tl{position:relative;padding-left:2rem;max-width:44rem}
+.tl::before{content:"";position:absolute;left:.45rem;top:.4rem;bottom:.4rem;width:2px;background:linear-gradient(var(--violet),var(--teal),transparent)}
+.ev{position:relative;padding:1.2rem 1.4rem;margin-bottom:1rem}
+.ev::before{content:"";position:absolute;left:-1.95rem;top:1.55rem;width:.9rem;height:.9rem;border-radius:50%;background:var(--bg);border:2px solid var(--violet);box-shadow:0 0 14px var(--violet)}
+.ev.now::before{border-color:var(--teal);background:var(--teal);box-shadow:0 0 16px var(--teal)}
+.ev.future::before{border-style:dashed}
+.ev small{color:var(--muted);font-size:.85rem}
+.ev h3{font-size:1.08rem;margin:.1rem 0 .3rem}
+.ev p{color:var(--muted);font-size:.96rem;line-height:1.55}
+
+/* contact */
+.contact{padding:2.4rem;text-align:center}
+.contact h2{margin-bottom:.8rem}
+.contact p{color:var(--muted);max-width:46ch;margin:0 auto 1.8rem}
+.contact .btns{justify-content:center}
+footer{padding:4rem 0 3rem;text-align:center;color:var(--muted);font-size:.92rem}
+footer q{display:block;font-size:1.2rem;color:var(--text);margin-bottom:.8rem;quotes:"“" "”"}
+
+/* single page-load reveal */
+.hero .wrap>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero .wrap>*:nth-child(2){animation-delay:.2s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<nav class="glass" aria-label="Main">
+  <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+  <button id="theme" type="button" aria-label="Switch between dark and light theme">🌙</button>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="badge glass"><b></b>Currently exploring: static web deployment and web application vulnerabilities</div>
+      <h1>Din Mohammad<span class="nick">Goes by Tahmid</span></h1>
+      <p class="sub">Aspiring web developer and cybersecurity enthusiast.</p>
+      <div class="btns">
+        <a class="btn main" href="#projects">See my projects</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="term glass" aria-label="Terminal introduction">
+      <header><i></i><i></i><i></i><span>tahmid@dhaka: ~</span></header>
+      <pre id="t" aria-live="off"><span class="p">$</span> whoami
+<span class="o">din mohammad (tahmid)</span>
+<span class="p">$</span> cat role.txt
+<span class="o">Aspiring Web Developer &amp; Cybersecurity Enthusiast</span>
+<span class="p">$</span> cat motto.txt
+<span class="o">Building the web today. Securing it tomorrow.</span></pre>
+    </div>
+  </div>
+</header>
+
+<section id="about"><div class="wrap">
+  <h2>About me</h2>
+  <div class="about">
+    <img src="me.jpg" alt="Din Mohammad">
+    <div>
+      <p class="lead">I’m a 20-year-old tech enthusiast from Bangladesh, currently preparing for engineering university admissions.</p>
+      <p class="lead">I’ve always been fascinated by how digital systems work and communicate under the hood. Right now I’m turning that curiosity into modern web development, learning to build fast, clean sites with Astro and Tailwind CSS, while digging into the fundamentals of cybersecurity.</p>
+      <p class="lead">My long-term vision is to bring these two passions together and start my own digital security agency that builds and protects robust web architectures.</p>
+    </div>
+  </div>
+  <div class="facts">
+    <div class="glass fact"><h3>🎮 Off-screen</h3><p>Between admission prep and coding, you’ll find me playing CODM or replaying Need for Speed.</p></div>
+    <div class="glass fact"><h3>🤖 Lore deep-dives</h3><p>Transformers and Dragon Ball. I can talk about both for far too long.</p></div>
+    <div class="glass fact"><h3>🧭 Core focus</h3><p>Continuous learning, static site architecture, and network security.</p></div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills and explorations</h2>
+  <div class="groups">
+    <div class="glass group"><h3>Web development</h3><div class="chips">
+      <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Astro</span><span class="chip">Tailwind CSS</span><span class="chip">GitHub Pages</span><span class="chip">Cloudflare Pages</span></div></div>
+    <div class="glass group"><h3>Security and AI</h3><div class="chips">
+      <span class="chip l">Cybersecurity fundamentals</span><span class="chip">AI prompt engineering</span><span class="chip">AI automation</span></div></div>
+    <div class="glass group"><h3>Focus</h3><div class="chips">
+      <span class="chip">Continuous learning</span><span class="chip">Static site architecture</span><span class="chip l">Network security</span></div></div>
+  </div>
+  <p class="note">Dashed chips are areas I’m actively learning.</p>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Learning projects</h2>
+  <div class="cards">
+    <article class="glass card"><h3>Static web experiments</h3>
+      <p>Fast, responsive practice sites built and deployed with Astro and Tailwind CSS to master modern front-end architecture.</p>
+      <div class="tags"><span>Astro</span><span>Tailwind</span><span>Cloudflare Pages</span></div></article>
+    <article class="glass card"><h3>Personal portfolio</h3>
+      <p>My own website on GitHub Pages, where I experiment with relative routing and custom CSS styling. You’re looking at the latest version.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>GitHub Pages</span></div></article>
+    <article class="glass card"><h3>Digital tinkering and AI</h3>
+      <p>Writing detailed prompt parameters to shape AI-generated video concepts.</p>
+      <div class="tags"><span>Prompt engineering</span><span>AI automation</span></div></article>
+  </div>
+</div></section>
+
+<section id="journey"><div class="wrap">
+  <h2>Journey</h2>
+  <div class="tl">
+    <div class="glass ev"><small>Completed</small><h3>HSC graduate</h3><p>Finished higher secondary education.</p></div>
+    <div class="glass ev now"><small>Now</small><h3>Independent learner and admission candidate</h3><p>Preparing seriously for competitive engineering admissions while expanding my web development stack and laying the groundwork for a cybersecurity career.</p></div>
+    <div class="glass ev future"><small>Next</small><h3>Engineering university</h3><p>Turning the fundamentals into formal knowledge.</p></div>
+    <div class="glass ev future"><small>Vision</small><h3>My own digital security agency</h3><p>Building and protecting robust web architectures.</p></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="glass contact">
+    <h2>Let’s talk</h2>
+    <p>Want to collaborate, share advice, or just talk tech? Email is the fastest way to reach me.</p>
+    <div class="btns">
+      <a class="btn main" href="mailto:hello.dinmohammad@gmail.com">Email me</a>
+      <a class="btn" href="https://github.com/tahmid-26/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="btn" href="https://facebook.com/tahmid8745/" target="_blank" rel="noopener noreferrer">Facebook</a>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <q>Building the web today. Securing it tomorrow.</q>
+  © <span id="y">2026</span> Din Mohammad. Hand-built with no third-party scripts.
+</div></footer>
+
+<script>
+(function(){
+  var r=document.documentElement,b=document.getElementById('theme');
+  function set(t){r.setAttribute('data-theme',t);b.textContent=t==='dark'?'🌙':'☀️';document.querySelector('meta[name=theme-color]').content=t==='dark'?'#07060d':'#f4f3fb'}
+  var s=null;try{s=localStorage.getItem('theme')}catch(e){}
+  if(!s&&window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)s='light';
+  set(s||'dark');
+  b.addEventListener('click',function(){var n=r.getAttribute('data-theme')==='dark'?'light':'dark';set(n);try{localStorage.setItem('theme',n)}catch(e){}});
+  document.getElementById('y').textContent=new Date().getFullYear();
+
+  // terminal typing (static text stays if motion is reduced)
+  var t=document.getElementById('t');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var lines=[['$ ','whoami'],['','din mohammad (tahmid)'],['$ ','cat role.txt'],['','Aspiring Web Developer & Cybersecurity Enthusiast'],['$ ','cat motto.txt'],['','Building the web today. Securing it tomorrow.']];
+  var out=[],li=0,ci=0;
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  function draw(){
+    var h='';
+    for(var i=0;i<out.length;i++)h+=out[i]+'\n';
+    t.innerHTML=h.replace(/\n$/,'');
+  }
+  function render(cur){
+    var h='';
+    for(var i=0;i<li;i++){var l=lines[i];h+=(l[0]?'<span class="p">$</span> ':'')+'<span class="'+(l[0]?'k':'o')+'">'+esc(l[1])+'</span>\n'}
+    if(li<lines.length){var c=lines[li];h+=(c[0]?'<span class="p">$</span> ':'')+'<span class="'+(c[0]?'k':'o')+'">'+esc(c[1].slice(0,ci))+'</span><span class="cur"></span>'}
+    else h+='<span class="p">$</span> <span class="cur"></span>';
+    t.innerHTML=h;
+  }
+  function tick(){
+    if(li>=lines.length){render();return}
+    var l=lines[li];
+    if(ci<l[1].length){ci++;render();setTimeout(tick,l[0]?70:22)}
+    else{li++;ci=0;render();setTimeout(tick,l[0]?250:450)}
+  }
+  setTimeout(tick,700);
+})();
+</script>
+</body>
+</html>
